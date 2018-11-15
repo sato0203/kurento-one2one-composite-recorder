@@ -194,13 +194,13 @@ CallMediaPipeline.prototype.createPipeline = function(callerId, calleeId, ws, ca
                                                 pipeline.release();
                                                 return callback(error);
                                             }
-                                            hubPortToOutPut.connect(callerWebRtcEndpoint, function(error) {
+                                            callerWebRtcEndpoint.connect(calleeWebRtcEndpoint, function(error) {
                                                 if (error) {
                                                     pipeline.release();
                                                     return callback(error);
                                                 }
                         
-                                                hubPortToOutPut.connect(callerWebRtcEndpoint, function(error) {
+                                                calleeWebRtcEndpoint.connect(callerWebRtcEndpoint, function(error) {
                                                     if (error) {
                                                         pipeline.release();
                                                         return callback(error);
